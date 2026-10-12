@@ -3,7 +3,6 @@
 #include <cmath>
 using namespace std;
 
-
 double kvadrat(double broj);
 double udaljenost(double x1, double y1, double x2, double y2);
 void ispisiUdaljenost(double rezultat);
@@ -17,56 +16,12 @@ int main() {
     cout << "Unesi koordinate druge tocke (x2 y2): ";
     scanf("%lf %lf", &x2, &y2);
 
-
     double d = udaljenost(x1, y1, x2, y2);
 
-
-    ispisiUdaljenost(d);
+    IspisiUdaljenost(d);
 
     return 0;
 }
-
-
-double kvadrat(double broj) {
-    return broj * broj;
-}
-
-double udaljenost(double x1, double y1, double x2, double y2) {
-
-    return sqrt(kvadrat(x2 - x1) + kvadrat(y2 - y1));
-}
-
-void ispisiUdaljenost(double rezultat) {
-    cout << "Udaljenost izmedu tocaka: " << rezultat << endl;
-}#include <iostream>
-#include <cstdio>
-#include <cmath>
-using namespace std;
-
-
-double kvadrat(double broj);
-double udaljenost(double x1, double y1, double x2, double y2);
-void ispisiUdaljenost(double rezultat);
-
-int main() {
-    double x1, y1, x2, y2;
-
-    cout << "Unesi koordinate prve tocke (x1 y1): ";
-    scanf("%lf %lf", &x1, &y1);
-
-    cout << "Unesi koordinate druge tocke (x2 y2): ";
-    scanf("%lf %lf", &x2, &y2);
-
-
-    double d = udaljenost(x1, y1, x2, y2);
-
-
-    ispisiUdaljenost(d);
-
-    return 0;
-}
-
-
 double kvadrat(double broj) {
     return broj * broj;
 }
