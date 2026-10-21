@@ -1,36 +1,36 @@
 #include <iostream>
-#include <cstdio>
-#include <cmath>
 using namespace std;
 
-double kvadrat(double broj);
-double udaljenost(double x1, double y1, double x2, double y2);
-void ispisiUdaljenost(double rezultat);
+bool ispravanUnos(int b, int m) {
+    return m > 0 && b >= 0 && b <= m;
+}
+double izracunajPostotak(int b, int m) {
+    return 100.0 * b / m;
+}
+int odrediOcjenu(double p) {
+    if (p < 50) return 1;
+    if (p < 65) return 2;
+    if (p < 80) return 3;
+    if (p < 90) return 4;
+    return 5;
+}
+
+void ispisiIzvjestaj(int b, int m, double p, int o) {
+    cout << "Bodovi: " << b << "/" << m << "\nPostotak: " << p << "%\nOcjena: " << o << endl;
+}
 
 int main() {
-    double x1, y1, x2, y2;
+    int b, m;
+    cout << "Unesi bodove i maksimalan broj bodova: ";
+    cin >> b >> m;
 
-    cout << "Unesi koordinate prve tocke (x1 y1): ";
-    scanf("%lf %lf", &x1, &y1);
+    if (!ispravanUnos(b, m)) {
+        cout << "Greska: Neispravan unos!" << endl;
+        return 0;
+    }
 
-    cout << "Unesi koordinate druge tocke (x2 y2): ";
-    scanf("%lf %lf", &x2, &y2);
-
-    double d = udaljenost(x1, y1, x2, y2);
-
-    IspisiUdaljenost(d);
+    double p = izracunajPostotak(b, m);
+    ispisiIzvjestaj(b, m, p, odrediOcjenu(p));
 
     return 0;
-}
-double kvadrat(double broj) {
-    return broj * broj;
-}
-
-double udaljenost(double x1, double y1, double x2, double y2) {
-
-    return sqrt(kvadrat(x2 - x1) + kvadrat(y2 - y1));
-}
-
-void ispisiUdaljenost(double rezultat) {
-    cout << "Udaljenost izmedu tocaka: " << rezultat << endl;
 }
