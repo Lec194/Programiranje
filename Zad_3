@@ -1,23 +1,30 @@
 #include <iostream>
 #include <cmath>
-#include <cstdio>
-
 using namespace std;
 
-int main()
-{
-    double x1, x2, y1, y2;
+double kvadrat(double b) {
+    return b * b;
+}
 
-    cout << "Unesi x1 i x2: " << endl;
-    cin >> x1 >> x2; 
+double udaljenost(double x1, double y1, double x2, double y2) {
+    double dx = x2 - x1;
+    double dy = y2 - y1;
+    return sqrt(kvadrat(dx) + kvadrat(dy));
+}
 
-    cout << "Unesi y1 i y2: " << endl;
-    cin >> y1 >> y2; 
+void ispisiUdaljenost(double r) {
+    cout << "Udaljenost izmedu tocaka: " << r << endl;
+}
 
- 
-    double d = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)); 
-    
-    cout << "Udaljenost je: " << d << endl;
+int main() {
+    double x1, y1, x2, y2;
+    cout << "Unesi koordinate prve tocke (x1 y1): ";
+    cin >> x1 >> y1;
+    cout << "Unesi koordinate druge tocke (x2 y2): ";
+    cin >> x2 >> y2;
+
+    double d = udaljenost(x1, y1, x2, y2);
+    ispisiUdaljenost(d);
 
     return 0;
 }
