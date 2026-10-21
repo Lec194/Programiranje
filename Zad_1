@@ -1,36 +1,28 @@
 #include <iostream>
-#include <cmath>
-#include <cstdio>
 using namespace std;
 
-int main()
-{
-    double a,b;
+double zbroji(double a, double b) { return a + b; }
+double oduzmi(double a, double b) { return a - b; }
+double pomnozi(double a, double b) { return a * b; }
+double podijeli(double a, double b) { return a / b; }
 
-    printf("Unesi prvi broj = ");
-    scanf("%lf",&a);
+void ispisiRezultat(double r) {
+    cout << r << endl;
+}
 
-    printf("Unesi drugi broj  = ");
-    scanf("%lf",&b);
+int main() {
+    double a, b;
+    cout << "Unesi dva broja: ";
+    cin >> a >> b;
 
-    double zbroj=a+b;
-    double razlika=a-b;
-    double umnozak=a*b;
-    double kolicnik=a/b;
-
-
-
-
-    cout<<"Zbroj je: "<<zbroj<<endl;
-    cout<<"Razlika je: "<<razlika<<endl;
-    cout<<"Umnozak je: "<<umnozak<<endl;
-    cout<<"Kolicnik je: "<<kolicnik<<endl;
-
-
-
-
-
-
-
+    cout << "Zbroj: "; ispisiRezultat(zbroji(a, b));
+    cout << "Razlika: "; ispisiRezultat(oduzmi(a, b));
+    cout << "Umnozak: "; ispisiRezultat(pomnozi(a, b));
+    
+    if (b != 0) {
+        cout << "Kolicnik: "; ispisiRezultat(podijeli(a, b));
+    } else {
+        cout << "Dijeljenje s nulom nije moguce." << endl;
+    }
     return 0;
 }
