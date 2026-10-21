@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+double izracunajStavku(double c, int k) {
+    return c * k;
+}
+
+double izracunajMeduzbroj(double s1, double s2, double s3) {
+    return s1 + s2 + s3;
+}
+
+double odrediStopuPopusta(double m) {
+    if (m >= 100) return 0.10;
+    return 0.0;
+}
+
+double izracunajKonacniIznos(double m) {
+    return m - (m * odrediStopuPopusta(m));
+}
+
+void ispisiRacun(double s1, double s2, double s3, double m, double k) {
+    cout << "Stavka 1: " << s1 << " EUR\n";
+    cout << "Stavka 2: " << s2 << " EUR\n";
+    cout << "Stavka 3: " << s3 << " EUR\n";
+    cout << "Meduzbroj: " << m << " EUR\n";
+    cout << "Za platiti: " << k << " EUR\n";
+}
+
+int main() {
+    double c1, c2, c3;
+    int k1, k2, k3;
+
+    cout << "Proizvod 1 (cijena i kolicina): "; cin >> c1 >> k1;
+    cout << "Proizvod 2 (cijena i kolicina): "; cin >> c2 >> k2;
+    cout << "Proizvod 3 (cijena i kolicina): "; cin >> c3 >> k3;
+
+    double s1 = izracunajStavku(c1, k1);
+    double s2 = izracunajStavku(c2, k2);
+    double s3 = izracunajStavku(c3, k3);
+    double m = izracunajMeduzbroj(s1, s2, s3);
+
+    ispisiRacun(s1, s2, s3, m, izracunajKonacniIznos(m));
+    return 0;
+}
