@@ -1,33 +1,36 @@
 #include <iostream>
 #include <cmath>
-#include <cstdio>
-
 using namespace std;
 
-int main()
-{
-    int a;
+bool jeParan(int b) {
+    return b % 2 == 0;
+}
 
-    cout<<"Unesi cijeli broj; "<<endl;
-    cin >> a;
+int apsolutnaVrijednost(int b) {
+    return abs(b);
+}
 
-    if (a % 2 == 0){
-        cout<<"Broj je paran: "<<a<<endl;
+int kvadrat(int b) {
+    return b * b;
+}
 
+void ispisiAnalizu(int b) {
+    if (jeParan(b)) {
+        cout << "Broj je paran." << endl;
+    } else {
+        cout << "Broj je neparan." << endl;
     }
-    else
-    {
+    cout << "Apsolutna vrijednost: " << apsolutnaVrijednost(b) << endl;
+    cout << "Kvadrat broja: " << kvadrat(b) << endl;
+}
 
-        cout<<"Broj je neparan: "<<a<<endl;
-    }
+int main() {
+    int b;
+    do {
+        cout << "Unesi cijeli broj (-100 do 100): ";
+        cin >> b;
+    } while (b < -100 || b > 100);
 
-    cout<<"Apsolutna vrijednost broja je: "<<abs(a)<<endl;
-     cout<<"Kvadrat broja je: "<<a*a<<endl;
-
-
-
-
-
-
+    ispisiAnalizu(b);
     return 0;
 }
