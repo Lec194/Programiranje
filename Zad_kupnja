@@ -22,10 +22,10 @@ int main() {
     for (int i = 1; i <= 3; i++) {
         int kolicina = 0;
 
-        do {
+        while (!ispravanUnos(kolicina)) {
             cout << "Kupnja " << i << " - unesi broj ulaznica (1-30): ";
             cin >> kolicina;
-        } while (!ispravanUnos(kolicina));
+        }
 
         double iznos = izracunajIznos(kolicina);
         evidentirajKupnju(kolicina, iznos);
